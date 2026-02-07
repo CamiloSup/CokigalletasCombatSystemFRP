@@ -1,67 +1,31 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Combate</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="page">
 
-<main class="center page">
-  <div class="card large">
+  <div class="main">
+    <div class="card">
+      <h1 id="title"></h1>
+      <p class="subtitle">Acciones disponibles</p>
 
-    <h2 id="info"></h2>
+      <button class="primary" onclick="doAction('Acción básica')">
+        Acción básica
+      </button>
 
-    <button onclick="action('Acción básica')">Acción básica</button>
-    <button onclick="action('Acción defensiva')">Acción defensiva</button>
-
-    <div class="log">
-      <pre><code id="output">Aún no se ha realizado ninguna acción.</code></pre>
+      <button class="secondary" onclick="doAction('Acción defensiva')">
+        Acción defensiva
+      </button>
     </div>
-
   </div>
-</main>
 
-<footer>by Cokigalleta – 2026</footer>
+  <footer>by Cokigalleta – 2026</footer>
 
-<script>
-const COOLDOWN = 15000;
-
-document.getElementById("info").innerText =
-  `${localStorage.getItem("character")} — ${localStorage.getItem("channel")}`;
-
-function action(name) {
-  const last = localStorage.getItem("lastAction");
-  const now = Date.now();
-
-  if (last && now - last < COOLDOWN) {
-    alert("Cooldown activo");
-    return;
-  }
-
-  localStorage.setItem("lastAction", now);
-
-  const roll = Math.floor(Math.random() * 20) + 1;
-  const dmg = Math.floor(Math.random() * 6) + 1;
-  const time = Math.floor(now / 1000);
-
-  const base = `${name}|${roll}|${dmg}|${time}`;
-  const hash = btoa(base).slice(0, 10);
-
-   document.getElementById("output").textContent =
-`*[COMBAT LOG]*
-*PERSONAJE*: _${localStorage.getItem("character")}_
-*ACCIÓN*: _${name}_
-*TIRADA*: _${roll}_
-*DAÑO*: _${dmg}_
-*TIMESTAMP*: _${time}_
-*HASH*: _${hash}_
-*[COMBAT LOG]*`;
-
-}
-</script>
-
+  <script src="combat.js"></script>
 </body>
 </html>
