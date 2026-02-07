@@ -1,34 +1,22 @@
-/* =========================
-   RESET BÁSICO
-========================= */
-*,
-*::before,
-*::after {
+/* RESET */
+* {
   box-sizing: border-box;
 }
 
 html, body {
+  margin: 0;
+  padding: 0;
   height: 100%;
 }
 
-/* =========================
-   BASE
-========================= */
+/* BASE */
 body {
-  margin: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: radial-gradient(
-    ellipse at top,
-    #0b1a33 0%,
-    #060b14 55%,
-    #030712 100%
-  );
+  background: linear-gradient(160deg, #050b18, #020617);
   color: #e6eefc;
 }
 
-/* =========================
-   LAYOUT
-========================= */
+/* LAYOUT */
 .page {
   min-height: 100vh;
   display: flex;
@@ -37,151 +25,83 @@ body {
 
 .main {
   flex: 1;
-  display: grid;
-  place-items: center;
-  padding: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
-/* =========================
-   CARD
-========================= */
+/* CARD */
 .card {
   width: 100%;
-  max-width: 520px;
-  background: linear-gradient(
-    180deg,
-    rgba(20, 35, 64, 0.95),
-    rgba(10, 18, 34, 0.95)
-  );
-  border-radius: 22px;
-  padding: 40px 32px;
+  max-width: 420px;
+  background: #0b1629;
+  border-radius: 18px;
+  padding: 32px 26px;
   text-align: center;
-  border: 1px solid rgba(120, 160, 255, 0.15);
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.45),
-    inset 0 0 0 1px rgba(255,255,255,0.02);
-  animation: fadeIn 0.5s ease;
+  border: 1px solid #1e3a5f;
 }
 
-/* =========================
-   TEXTO
-========================= */
+/* TEXT */
 h1 {
   margin: 0;
-  font-size: 1.75rem;
-  font-weight: 600;
+  font-size: 1.6rem;
 }
 
 .subtitle {
-  margin: 10px 0 28px;
-  font-size: 0.95rem;
+  margin: 10px 0 22px;
+  font-size: 0.9rem;
   color: #9bb4d6;
 }
 
-/* =========================
-   INPUT
-========================= */
+/* INPUT */
 input {
   width: 100%;
-  padding: 14px 16px;
-  margin-bottom: 18px;
-  border-radius: 14px;
-  border: 1px solid rgba(120,160,255,0.25);
-  background: #050b18;
-  color: #e6eefc;
-  font-size: 0.95rem;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid #1e3a5f;
+  background: #020617;
+  color: white;
+  margin-bottom: 16px;
 }
 
-input::placeholder {
-  color: #7f96b8;
-}
-
-input:focus {
-  outline: none;
-  border-color: #3b82f6;
-}
-
-/* =========================
-   BOTONES
-========================= */
+/* BUTTONS */
 button {
   width: 100%;
-  padding: 14px;
+  padding: 13px;
   margin-top: 10px;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 14px;
+  border-radius: 12px;
   border: none;
+  font-size: 1rem;
   cursor: pointer;
-  transition: transform 0.1s ease, background 0.2s ease;
 }
 
-button.primary {
-  background: linear-gradient(135deg, #3b82f6, #2563eb);
+.primary {
+  background: #3b82f6;
   color: white;
 }
 
-button.secondary {
-  background: #1a2b48;
+.secondary {
+  background: #1e3a5f;
   color: #dbeafe;
 }
 
-button:hover {
-  transform: translateY(-1px);
-}
-
-button:active {
-  transform: scale(0.98);
-}
-
-/* =========================
-   ADMIN LOGS
-========================= */
-.log-box {
-  margin-top: 20px;
-  padding: 18px;
+/* ADMIN LOG */
+.log {
+  margin-top: 16px;
+  padding: 14px;
   background: #020617;
-  border-radius: 16px;
-  border: 1px solid rgba(120,160,255,0.2);
+  border-radius: 12px;
+  border: 1px solid #1e3a5f;
   font-family: monospace;
   font-size: 0.85rem;
   white-space: pre-wrap;
-  color: #dbeafe;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 footer {
   text-align: center;
-  padding: 16px 0;
+  padding: 14px 0;
   font-size: 0.75rem;
   color: #6f87a8;
-}
-
-/* =========================
-   ANIMACIONES
-========================= */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(14px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 480px) {
-  .card {
-    padding: 32px 22px;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
 }
