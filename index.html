@@ -2,56 +2,17 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Combate - Jugador</title>
+  <title>Cokigalleta's Combat System For RP</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="center">
 
-<h2>Elegir Rol</h2>
-<select id="rol">
-  <option value="Guerrero">Guerrero</option>
-  <option value="Mago">Mago</option>
-</select>
+  <div class="card fade-in">
+    <h1>Cokigalleta's Combat System For RP</h1>
+    <button onclick="location.href='channels.html'">Entrar como jugador</button>
+  </div>
 
-<h2>Acciones</h2>
-<button onclick="accion('Ataque básico')">Ataque básico</button>
-<button onclick="accion('Defender')">Defender</button>
-
-<p id="cooldown"></p>
-
-<textarea id="output" rows="10" cols="50" readonly></textarea>
-
-<script>
-const COOLDOWN = 15000;
-
-function accion(nombre) {
-  const last = localStorage.getItem("lastAction");
-  const now = Date.now();
-
-  if (last && now - last < COOLDOWN) {
-    alert("Espera antes de actuar");
-    return;
-  }
-
-  localStorage.setItem("lastAction", now);
-
-  const tirada = Math.floor(Math.random() * 20) + 1;
-  const daño = Math.floor(Math.random() * 6) + 1;
-  const timestamp = Math.floor(now / 1000);
-
-  const base = `${nombre}|${tirada}|${daño}|${timestamp}`;
-  const hash = btoa(base).slice(0, 10);
-
-  document.getElementById("output").value =
-`[COMBAT_LOG]
-Rol: ${document.getElementById("rol").value}
-Acción: ${nombre}
-Tirada: ${tirada}
-Daño: ${daño}
-Timestamp: ${timestamp}
-Hash: ${hash}
-[/COMBAT_LOG]`;
-}
-</script>
+  <footer>by Cokigalleta – 2026</footer>
 
 </body>
 </html>
