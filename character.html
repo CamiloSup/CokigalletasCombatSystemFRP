@@ -5,18 +5,24 @@
   <title>Personaje</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="center">
 
-  <div class="card fade-in">
+  <div class="card">
     <h2>Nombre del personaje</h2>
     <input id="name" placeholder="Ej: Alex Mercer">
     <button onclick="saveName()">Continuar</button>
   </div>
 
+  <footer>by Cokigalleta – 2026</footer>
+
 <script>
 function saveName() {
   const name = document.getElementById("name").value.trim();
-  if (!name) return alert("Escribe un nombre");
+  if (!name) {
+    alert("Escribe un nombre");
+    return;
+  }
   localStorage.setItem("character", name);
   location.href = "combat.html";
 }
