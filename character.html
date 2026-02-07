@@ -1,42 +1,26 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <title>Personaje</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="page">
 
-  <main class="center page">
-    <div class="card large">
-      <h2>Nombre del personaje</h2>
-      <p class="subtitle">Este nombre se usará durante el combate</p>
+  <div class="main">
+    <div class="card">
+      <h1>Personaje</h1>
+      <p class="subtitle">Introduce tu nombre</p>
 
-      <input id="name" placeholder="Ej: Alex Mercer">
-      <button onclick="saveName()">Continuar</button>
+      <input id="name" placeholder="Ej: Camilo">
+      <button class="primary" onclick="saveName()">Continuar</button>
     </div>
-  </main>
+  </div>
 
   <footer>by Cokigalleta – 2026</footer>
 
-<script>
-function saveName() {
-  const name = document.getElementById("name").value.trim();
-  if (!name) {
-    alert("Escribe un nombre");
-    return;
-  }
-
-  document.body.classList.add("fade-out");
-
-  setTimeout(() => {
-    localStorage.setItem("character", name);
-    location.href = "combat.html";
-  }, 300);
-}
-</script>
-
+  <script src="script.js"></script>
 </body>
 </html>
