@@ -6,8 +6,9 @@ function adminLogin() {
   const pass = prompt("Clave de administrador:");
   if (pass === "admin") {
     localStorage.setItem("admin", "true");
-    alert("Modo administrador activado");
+    window.location.href = "admin.html";
   } else {
     alert("Clave incorrecta");
   }
 }
+
