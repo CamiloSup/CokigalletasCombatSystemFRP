@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Combate</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="card fade-in">
+  <h3 id="info"></h3>
+
+  <button onclick="action('Acción básica')">Acción básica</button>
+  <button onclick="action('Acción defensiva')">Acción defensiva</button>
+
+  <p id="cooldown"></p>
+  <textarea id="output" readonly></textarea>
+</div>
+
+<script>
+const COOLDOWN = 15000;
+
+document.getElementById("info").innerText =
+  `${localStorage.getItem("character")} — ${localStorage.getItem("channel")}`;
+
+function action(name) {
+  const last = localStorage.getItem("lastAction");
+  const now = Date.now();
+
+  if (last && now - last < COOLDOWN) {
+    alert("Cooldown activo");
+    return;
+  }
+
+  localStorage.setItem("lastAction", now);
+
+  const roll = Math.floor(Math.random()*20)+1;
+  const dmg = Math.floor(Math.random()*6)+1;
+  const time = Math.floor(now/1000);
+
+  const base = `${name}|${roll}|${dmg}|${time}`;
+  const hash = btoa(base).slice(0,10);
+
+  document.getElementById("output").value =
+`[COMBAT_LOG]
+Canal: ${localStorage.getItem("channel")}
+Personaje: ${localStorage.getItem("character")}
+Acción: ${name}
+Tirada: ${roll}
+Daño: ${dmg}
+Timestamp: ${time}
+Hash: ${hash}
+[/COMBAT_LOG]`;
+}
+</script>
+
+</body>
+</html>
