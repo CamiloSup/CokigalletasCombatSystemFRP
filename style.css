@@ -1,0 +1,67 @@
+body {
+  background: radial-gradient(#0f0f1a, #050508);
+  color: white;
+  font-family: system-ui;
+  margin: 0;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background: rgba(255,255,255,0.08);
+  padding: 30px;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  width: 300px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  background: #6a5cff;
+  color: white;
+  font-size: 16px;
+}
+
+input, textarea {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+footer {
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  opacity: 0.6;
+}
+
+.fade-in {
+  animation: fade 0.8s ease;
+}
+
+.slide-in {
+  animation: slide 0.6s ease;
+}
+
+@keyframes fade {
+  from {opacity:0}
+  to {opacity:1}
+}
+
+@keyframes slide {
+  from {transform:translateY(20px); opacity:0}
+  to {transform:none; opacity:1}
+}
