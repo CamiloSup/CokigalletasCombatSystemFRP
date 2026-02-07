@@ -4,12 +4,12 @@
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: #050d18;
-  color: #eaf2ff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #060b14;
+  color: #e6eefc;
 }
 
-/* Centrado */
+/* Centrado real */
 
 .center {
   min-height: 100vh;
@@ -22,82 +22,69 @@ body {
 
 .card {
   width: 90%;
-  max-width: 380px;
-  background-color: #0b1a2f;
-  border-radius: 16px;
-  padding: 28px;
-  border: 1px solid #1e3a5f;
-  animation: fadeIn 0.5s ease;
-}
-
-.card h1,
-.card h2 {
-  margin-top: 0;
+  max-width: 420px;
+  padding: 36px 32px;
+  background: #0c1626;
+  border-radius: 20px;
+  border: 1px solid #1b2f4d;
   text-align: center;
+  animation: fadeUp 0.5s ease;
 }
 
-.card h1 {
-  font-size: 1.5rem;
+/* Texto */
+
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
-.card h2 {
-  font-size: 1.2rem;
-  color: #9ecbff;
+.subtitle {
+  margin: 10px 0 24px;
+  font-size: 0.95rem;
+  color: #9bb4d6;
 }
 
-/* Botones */
+/* Botón */
 
 button {
   width: 100%;
-  margin-top: 12px;
   padding: 14px;
   font-size: 1rem;
-  background-color: #1f6fd6;
-  color: white;
+  font-weight: 500;
+  border-radius: 14px;
   border: none;
-  border-radius: 12px;
+  background: #2f80ed;
+  color: white;
   cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
 }
 
 button:hover {
-  background-color: #3a8cff;
+  background: #4a95ff;
 }
 
-/* Inputs */
-
-input,
-textarea {
-  width: 100%;
-  margin-top: 12px;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #2a4d7a;
-  background-color: #071426;
-  color: white;
-}
-
-textarea {
-  height: 150px;
-  resize: none;
+button:active {
+  transform: scale(0.98);
 }
 
 /* Footer */
 
 footer {
   position: fixed;
-  bottom: 10px;
+  bottom: 14px;
   width: 100%;
   text-align: center;
-  font-size: 0.8rem;
-  color: #7da9d9;
+  font-size: 0.75rem;
+  color: #6f87a8;
 }
 
 /* Animación */
 
-@keyframes fadeIn {
+@keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(12px);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
