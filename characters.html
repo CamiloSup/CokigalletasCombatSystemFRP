@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Personaje</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="center">
+
+  <div class="card fade-in">
+    <h2>Nombre del personaje</h2>
+    <input id="name" placeholder="Ej: Alex Mercer">
+    <button onclick="saveName()">Continuar</button>
+  </div>
+
+<script>
+function saveName() {
+  const name = document.getElementById("name").value.trim();
+  if (!name) return alert("Escribe un nombre");
+  localStorage.setItem("character", name);
+  location.href = "combat.html";
+}
+</script>
+
+</body>
+</html>
