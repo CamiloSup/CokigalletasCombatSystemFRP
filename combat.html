@@ -49,14 +49,16 @@ function action(name) {
   const base = `${name}|${roll}|${dmg}|${time}`;
   const hash = btoa(base).slice(0, 10);
 
-  document.getElementById("output").textContent =
-`*CANAL*: _${localStorage.getItem("channel")}_
+   document.getElementById("output").textContent =
+`*[COMBAT LOG]*
 *PERSONAJE*: _${localStorage.getItem("character")}_
 *ACCIÓN*: _${name}_
 *TIRADA*: _${roll}_
 *DAÑO*: _${dmg}_
 *TIMESTAMP*: _${time}_
-*HASH*: _${hash}_`;
+*HASH*: _${hash}_
+*[COMBAT LOG]*`;
+
 }
 </script>
 
