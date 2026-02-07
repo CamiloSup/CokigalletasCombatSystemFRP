@@ -1,28 +1,23 @@
-function enterPlayer() {
-  window.location.href = "channel.html";
-}
+console.log("script.js cargado");
 
-function selectChannel(channel) {
-  localStorage.setItem("channel", channel);
-  window.location.href = "character.html";
-}
+// BOTÓN CONTINUAR (CHARACTER)
+const continueBtn = document.getElementById("continueBtn");
 
-function saveName() {
-  const name = document.getElementById("name").value.trim();
-  if (!name) {
-    alert("Escribe un nombre");
-    return;
-  }
-  localStorage.setItem("character", name);
-  window.location.href = "combat.html";
-}
+if (continueBtn) {
+  continueBtn.addEventListener("click", () => {
+    const nameInput = document.getElementById("name");
+    const name = nameInput.value.trim();
 
-function enterAdmin() {
-  const pass = prompt("Clave de administrador");
-  if (pass === "admin") {
-    localStorage.setItem("admin", "true");
-    window.location.href = "admin.html";
-  } else {
-    alert("Clave incorrecta");
-  }
+    if (!name) {
+      alert("Escribe un nombre");
+      return;
+    }
+
+    localStorage.setItem("character", name);
+
+    console.log("Personaje guardado:", name);
+
+    // REDIRECCIÓN
+    window.location.href = "combat.html";
+  });
 }
