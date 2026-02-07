@@ -12,7 +12,7 @@ body {
 /* Centrado real */
 
 .center {
-  min-height: 100vh;
+   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,6 +22,7 @@ body {
 
 .card {
   width: 90%;
+  border: 3px solid red;
   max-width: 420px;
   padding: 36px 32px;
   background: #0c1626;
