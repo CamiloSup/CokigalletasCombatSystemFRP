@@ -5,17 +5,25 @@
   <title>Combate</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="card fade-in">
-  <h3 id="info"></h3>
+<main class="center page">
+  <div class="card large">
 
-  <button onclick="action('Acción básica')">Acción básica</button>
-  <button onclick="action('Acción defensiva')">Acción defensiva</button>
+    <h2 id="info"></h2>
 
-  <p id="cooldown"></p>
-  <textarea id="output" readonly></textarea>
-</div>
+    <button onclick="action('Acción básica')">Acción básica</button>
+    <button onclick="action('Acción defensiva')">Acción defensiva</button>
+
+    <div class="log">
+      <pre><code id="output">Aún no se ha realizado ninguna acción.</code></pre>
+    </div>
+
+  </div>
+</main>
+
+<footer>by Cokigalleta – 2026</footer>
 
 <script>
 const COOLDOWN = 15000;
@@ -34,23 +42,21 @@ function action(name) {
 
   localStorage.setItem("lastAction", now);
 
-  const roll = Math.floor(Math.random()*20)+1;
-  const dmg = Math.floor(Math.random()*6)+1;
-  const time = Math.floor(now/1000);
+  const roll = Math.floor(Math.random() * 20) + 1;
+  const dmg = Math.floor(Math.random() * 6) + 1;
+  const time = Math.floor(now / 1000);
 
   const base = `${name}|${roll}|${dmg}|${time}`;
-  const hash = btoa(base).slice(0,10);
+  const hash = btoa(base).slice(0, 10);
 
-  document.getElementById("output").value =
-`[COMBAT_LOG]
-Canal: ${localStorage.getItem("channel")}
-Personaje: ${localStorage.getItem("character")}
-Acción: ${name}
-Tirada: ${roll}
-Daño: ${dmg}
-Timestamp: ${time}
-Hash: ${hash}
-[/COMBAT_LOG]`;
+  document.getElementById("output").textContent =
+`*CANAL*: _${localStorage.getItem("channel")}_
+*PERSONAJE*: _${localStorage.getItem("character")}_
+*ACCIÓN*: _${name}_
+*TIRADA*: _${roll}_
+*DAÑO*: _${dmg}_
+*TIMESTAMP*: _${time}_
+*HASH*: _${hash}_`;
 }
 </script>
 
