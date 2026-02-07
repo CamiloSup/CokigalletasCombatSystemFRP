@@ -35,18 +35,6 @@ body {
 .card.large {
   max-width: 520px;
   padding: 48px 44px;
-}
-
-input {
-  width: 100%;
-  margin-top: 18px;
-  padding: 16px;
-  font-size: 1.05rem;
-  border-radius: 14px;
-  border: 1px solid #1b2f4d;
-  background: #071426;
-  color: #e6eefc;
-}
 
 /* Texto */
 
@@ -108,3 +96,23 @@ footer {
     transform: none;
   }
 }
+
+  .log {
+  margin-top: 24px;
+  background: #071426;
+  border: 1px solid #1b2f4d;
+  border-radius: 14px;
+  padding: 18px;
+  text-align: left;
+}
+
+pre {
+  margin: 0;
+  font-family: Consolas, monospace;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #e6eefc;
+  user-select: all;
+  white-space: pre-wrap;
+}
+
