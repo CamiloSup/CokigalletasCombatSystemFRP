@@ -1,13 +1,29 @@
-const logsDiv = document.getElementById("logs");
-const logs = JSON.parse(localStorage.getItem("logs") || "[]");
+const ADMIN_PASSWORD = "admin123";
+const pass = prompt("Contraseña admin:");
 
-if (logs.length === 0) {
-  logsDiv.textContent = "No hay registros";
+if (pass !== ADMIN_PASSWORD) {
+  alert("Acceso denegado");
+  location.href = "index.html";
 }
 
-logs.forEach(log => {
-  const box = document.createElement("pre");
-  box.textContent = log;
-  box.style.userSelect = "text";
-  logsDiv.appendChild(box);
+const logs = JSON.parse(localStorage.getItem("logs") || "[]");
+const container = document.getElementById("logs");
+
+const grouped = {};
+
+logs.forEach(l => {
+  if (!grouped[l.channel]) grouped[l.channel] = [];
+  grouped[l.channel].push(l.text);
+});
+
+Object.keys(grouped).forEach(channel => {
+  const h = document.createElement("h3");
+  h.textContent = "Channel: " + channel;
+  container.appendChild(h);
+
+  grouped[channel].forEach(text => {
+    const pre = document.createElement("pre");
+    pre.textContent = text;
+    container.appendChild(pre);
+  });
 });
