@@ -1,5 +1,20 @@
 function enterPlayer() {
+  window.location.href = "channel.html";
+}
+
+function selectChannel(channel) {
+  localStorage.setItem("channel", channel);
   window.location.href = "character.html";
+}
+
+function saveName() {
+  const name = document.getElementById("name").value.trim();
+  if (!name) {
+    alert("Escribe un nombre");
+    return;
+  }
+  localStorage.setItem("character", name);
+  window.location.href = "combat.html";
 }
 
 function enterAdmin() {
@@ -10,14 +25,4 @@ function enterAdmin() {
   } else {
     alert("Clave incorrecta");
   }
-}
-
-function saveName() {
-  const name = document.getElementById("name").value.trim();
-  if (!name) {
-    alert("Escribe un nombre");
-    return;
-  }
-  localStorage.setItem("character", name);
-  alert("Personaje guardado");
 }
