@@ -1,67 +1,137 @@
-body {
-  background: radial-gradient(#0f0f1a, #050508);
-  color: white;
-  font-family: system-ui;
-  margin: 0;
+:root {
+  --bg: #050b14;
+  --card: rgba(255, 255, 255, 0.06);
+  --accent: #3fa9f5;
+  --accent-soft: rgba(63, 169, 245, 0.15);
+  --text: #eaeef3;
+  --muted: #9aa4b2;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+  background: radial-gradient(
+    circle at top,
+    #0b1625,
+    var(--bg) 60%
+  );
+  color: var(--text);
+}
+
+/* Layout */
+
 .center {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
+/* Card */
+
 .card {
-  background: rgba(255,255,255,0.08);
-  padding: 30px;
-  border-radius: 16px;
-  backdrop-filter: blur(10px);
-  text-align: center;
-  width: 300px;
+  width: 100%;
+  max-width: 380px;
+  padding: 32px 28px;
+  border-radius: 18px;
+  background: var(--card);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  animation: fadeUp 0.6s ease;
 }
+
+.card h1,
+.card h2,
+.card h3 {
+  margin: 0 0 12px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.card h1 {
+  font-size: 1.4rem;
+}
+
+.card h2 {
+  font-size: 1.2rem;
+}
+
+.card h3 {
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+/* Buttons */
 
 button {
   width: 100%;
-  padding: 12px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 10px;
-  background: #6a5cff;
-  color: white;
-  font-size: 16px;
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  background: var(--accent-soft);
+  color: var(--text);
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
 
-input, textarea {
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
+button:hover {
+  background: var(--accent);
+  color: #00101f;
+  transform: translateY(-1px);
 }
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* Inputs */
+
+input,
+textarea {
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text);
+  font-size: 0.9rem;
+}
+
+textarea {
+  resize: none;
+  height: 160px;
+}
+
+/* Footer */
 
 footer {
   position: fixed;
-  bottom: 10px;
+  bottom: 14px;
   width: 100%;
   text-align: center;
-  opacity: 0.6;
+  font-size: 0.8rem;
+  color: var(--muted);
+  opacity: 0.7;
 }
 
-.fade-in {
-  animation: fade 0.8s ease;
-}
+/* Animations */
 
-.slide-in {
-  animation: slide 0.6s ease;
-}
-
-@keyframes fade {
-  from {opacity:0}
-  to {opacity:1}
-}
-
-@keyframes slide {
-  from {transform:translateY(20px); opacity:0}
-  to {transform:none; opacity:1}
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
