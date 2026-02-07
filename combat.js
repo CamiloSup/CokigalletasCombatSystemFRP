@@ -1,23 +1,23 @@
 const character = localStorage.getItem("character");
 const channel = localStorage.getItem("channel");
-const role = localStorage.getItem("role") || "Guerrero";
+const role = localStorage.getItem("role");
 
 const ROLES = {
   Guerrero: [
-    { name: "Ataque fuerte", damage: 8, cooldown: 5000 },
-    { name: "Defensa", damage: 0, cooldown: 3000 }
+    { name: "Ataque fuerte", damage: 8, cooldown: 5000 }
   ],
   Mago: [
-    { name: "Bola de fuego", damage: 10, cooldown: 6000 },
-    { name: "Escudo arcano", damage: 0, cooldown: 4000 }
+    { name: "Bola de fuego", damage: 10, cooldown: 6000 }
   ]
 };
 
-document.getElementById("info").textContent =
-  `${character} — ${role} — ${channel}`;
+const info = document.getElementById("info");
+const actions = document.getElementById("actions");
+const logsBox = document.getElementById("playerLogs");
 
-const actionsDiv = document.getElementById("actions");
-let lastActionTime = 0;
+info.textContent = `${character} — ${role} — ${channel}`;
+
+let last = 0;
 
 ROLES[role].forEach(action => {
   const btn = document.createElement("button");
@@ -25,33 +25,44 @@ ROLES[role].forEach(action => {
 
   btn.onclick = () => {
     const now = Date.now();
-    if (now - lastActionTime < action.cooldown) {
-      alert("Cooldown activo");
-      return;
-    }
-
-    lastActionTime = now;
+    if (now - last < action.cooldown) return alert("Cooldown activo");
+    last = now;
 
     const roll = Math.floor(Math.random() * 20) + 1;
 
-    const logText = `
+    const log = {
+      channel,
+      text: `
 *COMBAT_LOG*
-*Channel:* _${channel}_
-*Personaje:* _${character}_
-*Rol:* _${role}_
-*Acción:* _${action.name}_
-*Tirada:* _${roll}_
-*Daño:* _${action.damage}_
-*Timestamp:* _${new Date().toLocaleString()}_
+${character} (${role})
+Acción: ${action.name}
+Tirada: ${roll}
+Daño: ${action.damage}
+${new Date().toLocaleString()}
 *COMBAT_LOG*
-`.trim();
+`.trim()
+    };
 
     const logs = JSON.parse(localStorage.getItem("logs") || "[]");
-    logs.push(logText);
+    logs.push(log);
     localStorage.setItem("logs", JSON.stringify(logs));
 
-    alert("Acción registrada");
+    renderPlayerLogs();
   };
 
-  actionsDiv.appendChild(btn);
+  actions.appendChild(btn);
 });
+
+function renderPlayerLogs() {
+  logsBox.innerHTML = "";
+  const logs = JSON.parse(localStorage.getItem("logs") || "[]")
+    .filter(l => l.channel === channel);
+
+  logs.forEach(l => {
+    const pre = document.createElement("pre");
+    pre.textContent = l.text;
+    logsBox.appendChild(pre);
+  });
+}
+
+renderPlayerLogs();
