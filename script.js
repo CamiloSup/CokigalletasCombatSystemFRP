@@ -1,23 +1,45 @@
-console.log("script.js cargado");
+function go(page) {
+  window.location.href = page;
+}
 
-// BOTÓN CONTINUAR (CHARACTER)
-const continueBtn = document.getElementById("continueBtn");
+function setChannel(channel) {
+  localStorage.setItem("channel", channel);
+  go("character.html");
+}
 
-if (continueBtn) {
-  continueBtn.addEventListener("click", () => {
-    const nameInput = document.getElementById("name");
-    const name = nameInput.value.trim();
+function saveCharacter() {
+  const name = document.getElementById("name").value.trim();
+  if (!name) {
+    alert("Pon un nombre");
+    return;
+  }
+  localStorage.setItem("character", name);
+  go("combat.html");
+}
 
-    if (!name) {
-      alert("Escribe un nombre");
-      return;
-    }
+function attack() {
+  const log = {
+    channel: localStorage.getItem("channel"),
+    character: localStorage.getItem("character"),
+    roll: Math.floor(Math.random() * 20) + 1
+  };
 
-    localStorage.setItem("character", name);
+  const logs = JSON.parse(localStorage.getItem("logs") || "[]");
+  logs.push(log);
+  localStorage.setItem("logs", JSON.stringify(logs));
 
-    console.log("Personaje guardado:", name);
+  alert("Ataque registrado");
+}
 
-    // REDIRECCIÓN
-    window.location.href = "combat.html";
-  });
+const info = document.getElementById("info");
+if (info) {
+  info.textContent =
+    localStorage.getItem("character") +
+    " — " +
+    localStorage.getItem("channel");
+}
+
+const logsBox = document.getElementById("logs");
+if (logsBox) {
+  logsBox.textContent = localStorage.getItem("logs") || "Sin logs";
 }
