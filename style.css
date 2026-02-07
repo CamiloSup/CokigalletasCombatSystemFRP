@@ -4,115 +4,95 @@
 
 body {
   margin: 0;
+  padding: 20px;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: #060b14;
+  background: radial-gradient(circle at top, #0a1222, #05080f);
   color: #e6eefc;
 }
 
 /* Centrado real */
-
 .center {
-  min-height: 100vh;
+  min-height: calc(100vh - 40px);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-
 /* Card */
-
 .card {
-  width: 90%;
-  max-width: 420px;
-  padding: 36px 32px;
+  width: 100%;
+  max-width: 520px;
+  padding: 28px;
   background: #0c1626;
-  border-radius: 20px;
+  border-radius: 22px;
   border: 1px solid #1b2f4d;
   text-align: center;
-  animation: fadeUp 0.5s ease;
+  animation: fadeUp 0.4s ease;
 }
 
-.card.large {
-  max-width: 520px;
-  padding: 48px 44px;
-
-/* Texto */
-
-h1 {
+/* Títulos */
+h1, h2 {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
 .subtitle {
-  margin: 10px 0 24px;
+  margin: 10px 0 22px;
   font-size: 0.95rem;
   color: #9bb4d6;
 }
 
-/* Botón */
-
+/* Botones */
 button {
   width: 100%;
-  padding: 14px;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 14px;
+  padding: 16px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 16px;
   border: none;
   background: #2f80ed;
   color: white;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
+  margin-top: 12px;
 }
 
-button:hover {
-  background: #4a95ff;
+button.secondary {
+  background: #1e3558;
 }
 
 button:active {
-  transform: scale(0.98);
+  transform: scale(0.97);
+}
+
+/* LOG */
+.log {
+  margin-top: 20px;
+  width: 100%;
+  height: 260px;
+  padding: 16px;
+  border-radius: 14px;
+  background: #050a14;
+  border: 1px solid #1b2f4d;
+  color: #e6eefc;
+  font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  overflow-y: auto;
 }
 
 /* Footer */
-
 footer {
-  position: fixed;
-  bottom: 14px;
-  width: 100%;
+  margin-top: 18px;
   text-align: center;
   font-size: 0.75rem;
   color: #6f87a8;
 }
 
 /* Animación */
-
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(14px);
+    transform: translateY(16px);
   }
   to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-  .log {
-  margin-top: 24px;
-  background: #071426;
-  border: 1px solid #1b2f4d;
-  border-radius: 14px;
-  padding: 18px;
-  text-align: left;
-}
-
-pre {
-  margin: 0;
-  font-family: Consolas, monospace;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #e6eefc;
-  user-select: all;
-  white-space: pre-wrap;
-}
-
