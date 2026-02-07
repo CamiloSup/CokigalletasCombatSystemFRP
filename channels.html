@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Elegir Canal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="center">
+
+  <div class="card slide-in">
+    <h2>Selecciona el canal</h2>
+
+    <button onclick="selectChannel('Uchronia')">Uchronia</button>
+    <button onclick="selectChannel('Placeholder #2')">Placeholder #2</button>
+  </div>
+
+<script>
+function selectChannel(channel) {
+  localStorage.setItem("channel", channel);
+  location.href = "character.html";
+}
+</script>
+
+</body>
+</html>
