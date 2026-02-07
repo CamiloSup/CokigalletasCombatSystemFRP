@@ -2,8 +2,8 @@ function enterPlayer() {
   window.location.href = "character.html";
 }
 
-function adminLogin() {
-  const pass = prompt("Clave de administrador:");
+function enterAdmin() {
+  const pass = prompt("Clave de administrador");
   if (pass === "admin") {
     localStorage.setItem("admin", "true");
     window.location.href = "admin.html";
@@ -12,3 +12,12 @@ function adminLogin() {
   }
 }
 
+function saveName() {
+  const name = document.getElementById("name").value.trim();
+  if (!name) {
+    alert("Escribe un nombre");
+    return;
+  }
+  localStorage.setItem("character", name);
+  alert("Personaje guardado");
+}
