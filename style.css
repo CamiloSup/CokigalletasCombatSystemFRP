@@ -1,28 +1,15 @@
-:root {
-  --bg: #050b14;
-  --card: rgba(255, 255, 255, 0.06);
-  --accent: #3fa9f5;
-  --accent-soft: rgba(63, 169, 245, 0.15);
-  --text: #eaeef3;
-  --muted: #9aa4b2;
-}
-
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Inter, system-ui, sans-serif;
-  background: radial-gradient(
-    circle at top,
-    #0b1625,
-    var(--bg) 60%
-  );
-  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #050d18;
+  color: #eaf2ff;
 }
 
-/* Layout */
+/* Centrado */
 
 .center {
   min-height: 100vh;
@@ -34,62 +21,46 @@ body {
 /* Card */
 
 .card {
-  width: 100%;
+  width: 90%;
   max-width: 380px;
-  padding: 32px 28px;
-  border-radius: 18px;
-  background: var(--card);
-  backdrop-filter: blur(14px);
-  border: 1px solid rgba(255,255,255,0.08);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  animation: fadeUp 0.6s ease;
+  background-color: #0b1a2f;
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid #1e3a5f;
+  animation: fadeIn 0.5s ease;
 }
 
 .card h1,
-.card h2,
-.card h3 {
-  margin: 0 0 12px;
-  font-weight: 600;
-  letter-spacing: 0.2px;
+.card h2 {
+  margin-top: 0;
+  text-align: center;
 }
 
 .card h1 {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 .card h2 {
   font-size: 1.2rem;
+  color: #9ecbff;
 }
 
-.card h3 {
-  font-size: 1rem;
-  color: var(--muted);
-}
-
-/* Buttons */
+/* Botones */
 
 button {
   width: 100%;
   margin-top: 12px;
   padding: 14px;
-  border-radius: 14px;
-  border: 1px solid transparent;
-  background: var(--accent-soft);
-  color: var(--text);
-  font-size: 0.95rem;
-  font-weight: 500;
+  font-size: 1rem;
+  background-color: #1f6fd6;
+  color: white;
+  border: none;
+  border-radius: 12px;
   cursor: pointer;
-  transition: all 0.25s ease;
 }
 
 button:hover {
-  background: var(--accent);
-  color: #00101f;
-  transform: translateY(-1px);
-}
-
-button:active {
-  transform: scale(0.98);
+  background-color: #3a8cff;
 }
 
 /* Inputs */
@@ -98,37 +69,35 @@ input,
 textarea {
   width: 100%;
   margin-top: 12px;
-  padding: 14px;
-  border-radius: 14px;
-  background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.1);
-  color: var(--text);
-  font-size: 0.9rem;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #2a4d7a;
+  background-color: #071426;
+  color: white;
 }
 
 textarea {
+  height: 150px;
   resize: none;
-  height: 160px;
 }
 
 /* Footer */
 
 footer {
   position: fixed;
-  bottom: 14px;
+  bottom: 10px;
   width: 100%;
   text-align: center;
   font-size: 0.8rem;
-  color: var(--muted);
-  opacity: 0.7;
+  color: #7da9d9;
 }
 
-/* Animations */
+/* Animación */
 
-@keyframes fadeUp {
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
