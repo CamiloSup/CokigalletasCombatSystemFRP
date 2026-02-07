@@ -6,13 +6,17 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="center">
+<body>
 
-  <div class="card">
-    <h2>Nombre del personaje</h2>
-    <input id="name" placeholder="Ej: Alex Mercer">
-    <button onclick="saveName()">Continuar</button>
-  </div>
+  <main class="center page">
+    <div class="card large">
+      <h2>Nombre del personaje</h2>
+      <p class="subtitle">Este nombre se usará durante el combate</p>
+
+      <input id="name" placeholder="Ej: Alex Mercer">
+      <button onclick="saveName()">Continuar</button>
+    </div>
+  </main>
 
   <footer>by Cokigalleta – 2026</footer>
 
@@ -23,8 +27,13 @@ function saveName() {
     alert("Escribe un nombre");
     return;
   }
-  localStorage.setItem("character", name);
-  location.href = "combat.html";
+
+  document.body.classList.add("fade-out");
+
+  setTimeout(() => {
+    localStorage.setItem("character", name);
+    location.href = "combat.html";
+  }, 300);
 }
 </script>
 
