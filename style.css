@@ -1,22 +1,14 @@
-/* RESET */
 * {
   box-sizing: border-box;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-}
-
-/* BASE */
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-  background: linear-gradient(160deg, #050b18, #020617);
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0a1020;
   color: #e6eefc;
 }
 
-/* LAYOUT */
 .page {
   min-height: 100vh;
   display: flex;
@@ -28,80 +20,38 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 20px;
 }
 
-/* CARD */
 .card {
-  width: 100%;
-  max-width: 420px;
-  background: #0b1629;
-  border-radius: 18px;
-  padding: 32px 26px;
-  text-align: center;
-  border: 1px solid #1e3a5f;
-}
-
-/* TEXT */
-h1 {
-  margin: 0;
-  font-size: 1.6rem;
-}
-
-.subtitle {
-  margin: 10px 0 22px;
-  font-size: 0.9rem;
-  color: #9bb4d6;
-}
-
-/* INPUT */
-input {
-  width: 100%;
-  padding: 12px;
+  width: 90%;
+  max-width: 400px;
+  background: #111a33;
+  padding: 24px;
   border-radius: 12px;
-  border: 1px solid #1e3a5f;
-  background: #020617;
-  color: white;
-  margin-bottom: 16px;
+  text-align: center;
 }
 
-/* BUTTONS */
 button {
   width: 100%;
-  padding: 13px;
-  margin-top: 10px;
-  border-radius: 12px;
-  border: none;
+  padding: 12px;
+  margin-top: 12px;
   font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #3b82f6;
+  color: white;
   cursor: pointer;
 }
 
-.primary {
-  background: #3b82f6;
-  color: white;
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 12px;
 }
 
-.secondary {
-  background: #1e3a5f;
-  color: #dbeafe;
-}
-
-/* ADMIN LOG */
-.log {
-  margin-top: 16px;
-  padding: 14px;
-  background: #020617;
-  border-radius: 12px;
-  border: 1px solid #1e3a5f;
-  font-family: monospace;
-  font-size: 0.85rem;
-  white-space: pre-wrap;
-}
-
-/* FOOTER */
 footer {
   text-align: center;
-  padding: 14px 0;
+  padding: 10px;
   font-size: 0.75rem;
-  color: #6f87a8;
+  color: #8aa0c8;
 }
